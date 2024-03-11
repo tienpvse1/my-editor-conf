@@ -25,7 +25,21 @@ local default_plugins = {
     end,
     config = function(_, opts)
       require "base46.term"
-      require("nvterm").setup(opts)
+
+      local myConfig = {
+        terminals = {
+          type_opts = {
+            float = {
+              width = 0.9,
+              height = 0.8,
+              row = 0.05,
+              col = 0.05,
+            },
+          },
+        },
+      }
+      local result = vim.tbl_deep_extend("force", opts, myConfig)
+      require("nvterm").setup(result)
     end,
   },
 
@@ -256,3 +270,5 @@ if #config.plugins > 0 then
 end
 
 require("lazy").setup(default_plugins, config.lazy_nvim)
+
+require("nvim-ts-autotag").setup()
