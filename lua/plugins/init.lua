@@ -155,7 +155,10 @@ local default_plugins = {
         dependencies = "rafamadriz/friendly-snippets",
         opts = { history = true, updateevents = "TextChanged,TextChangedI" },
         config = function(_, opts)
+          local luasnip = require "luasnip"
           require("plugins.configs.others").luasnip(opts)
+          luasnip.filetype_extend("javascriptreact", { "html" })
+          luasnip.filetype_extend("typescriptreact", { "html" })
         end,
       },
 
@@ -259,6 +262,32 @@ local default_plugins = {
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "whichkey")
       require("which-key").setup(opts)
+    end,
+  },
+  {
+    "andweeb/presence.nvim",
+    event = "BufEnter",
+    config = function()
+      require("presence").setup {
+        auto_update = true,
+        neovim_image_text = "The One True Text Editor",
+        main_image = "neovim",
+        enable_line_number = false,
+        blacklist = {},
+        buttons = true,
+        file_assets = {},
+        show_time = false,
+
+        log_level = nil, -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
+        -- Rich Presence text options
+        editing_text = "⌨️  Code file %s ẻ chảy",
+        file_explorer_text = "🔍 Browsing %s",
+        git_commit_text = "Committing changes",
+        plugin_manager_text = "Managing plugins",
+        reading_text = "👀 %s",
+        workspace_text = "React như 🍆",
+        line_number_text = "Line %s out of %s",
+      }
     end,
   },
 }

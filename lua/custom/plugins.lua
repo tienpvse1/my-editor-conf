@@ -11,15 +11,6 @@ local plugins = {
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end, -- Override to setup mason-lspconfig
-    dependencies = {
-      "jose-elias-alvarez/null-ls.nvim",
-      dependencies = {
-        "jose-elias-alvarez/typescript.nvim",
-      },
-      config = function()
-        require "custom.configs.null-ls"
-      end,
-    },
   },
 
   -- override plugin configs
