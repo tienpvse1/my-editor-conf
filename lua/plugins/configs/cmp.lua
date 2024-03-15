@@ -1,5 +1,15 @@
 local cmp = require "cmp"
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "sql", "mysql", "plsql" },
+  callback = function()
+    cmp.setup.buffer {
+      sources = {
+        { name = "vim-dadbod-completion" },
+      },
+    }
+  end,
+})
 dofile(vim.g.base46_cache .. "cmp")
 
 local cmp_ui = require("core.utils").load_config().ui.cmp

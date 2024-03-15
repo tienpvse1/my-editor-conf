@@ -33,10 +33,18 @@ M.mason = {
     "typescript-language-server",
     "deno",
     "prettier",
+    "tailwindcss-language-server",
+    "svelte-language-server",
 
     -- c/cpp stuff
     "clangd",
     "clang-format",
+
+    -- golang 
+    "gopls",
+    "gotests",
+    "goimports",
+    "gomodifytags"
   },
 }
 
