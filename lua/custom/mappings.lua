@@ -5,6 +5,11 @@ M.general = {
     ["<C-s>"] = { "<ESC><cmd> w <CR>", "Save file" },
   },
   n = {
+
+    ["<A-l>"] = {
+      "<cmd>LazyGit <cr>",
+      "Open lazygit",
+    },
     ["-"] = {
       "<cmd>vertical resize +5<cr>",
       "Decrease window height",
