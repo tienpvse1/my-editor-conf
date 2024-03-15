@@ -1,12 +1,27 @@
 ---@type MappingsTable
 local M = {}
-
 M.general = {
   i = {
     ["<C-s>"] = { "<ESC><cmd> w <CR>", "Save file" },
   },
   n = {
+    ["-"] = {
+      "<cmd>vertical resize +5<cr>",
+      "Decrease window height",
+    },
 
+    ["="] = {
+      "<cmd>vertical resize -5<cr>",
+      "Increase window height",
+    },
+    ["+"] = {
+      "<cmd>horizontal resize +2<cr>",
+      "Increase window width",
+    },
+    ["_"] = {
+      "<cmd>horizontal resize -2<cr>",
+      "Decrease window height",
+    },
     ["<leader>d"] = { "<cmd>DBUIToggle<CR>", "Save file" },
     --  format with conform
     ["<leader>fm"] = {

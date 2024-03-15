@@ -40,11 +40,11 @@ M.mason = {
     "clangd",
     "clang-format",
 
-    -- golang 
+    -- golang
     "gopls",
     "gotests",
     "goimports",
-    "gomodifytags"
+    "gomodifytags",
   },
 }
 

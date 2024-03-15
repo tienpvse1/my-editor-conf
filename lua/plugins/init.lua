@@ -299,5 +299,3 @@ if #config.plugins > 0 then
 end
 
 require("lazy").setup(default_plugins, config.lazy_nvim)
-
-require("nvim-ts-autotag").setup()
