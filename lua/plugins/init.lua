@@ -156,9 +156,11 @@ local default_plugins = {
         opts = { history = true, updateevents = "TextChanged,TextChangedI" },
         config = function(_, opts)
           local luasnip = require "luasnip"
+          require "custom.snippets.snippets"
           require("plugins.configs.others").luasnip(opts)
           luasnip.filetype_extend("javascriptreact", { "html" })
           luasnip.filetype_extend("typescriptreact", { "html" })
+          luasnip.filetype_extend("typescript", { "typescript" })
         end,
       },
 
