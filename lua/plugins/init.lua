@@ -161,6 +161,7 @@ local default_plugins = {
           luasnip.filetype_extend("javascriptreact", { "html" })
           luasnip.filetype_extend("typescriptreact", { "html" })
           luasnip.filetype_extend("typescript", { "typescript" })
+          luasnip.filetype_extend("sql", { "sql" })
         end,
       },
 

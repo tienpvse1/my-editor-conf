@@ -41,3 +41,5 @@ end
 dofile(vim.g.base46_cache .. "defaults")
 vim.opt.rtp:prepend(lazypath)
 require "plugins"
+vim.g.neovide_fullscreen = true
+vim.g.neovide_cursor_vfx_mode = "railgun"

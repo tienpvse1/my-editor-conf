@@ -1,5 +1,4 @@
 -- n, v, i, t = mode names
-
 local M = {}
 
 M.general = {
@@ -270,7 +269,12 @@ M.telescope = {
 
   n = {
     -- find
-    ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
+    ["<leader>ff"] = {
+      function()
+        require("telescope.builtin").find_files { cwd = require("telescope.utils").buffer_dir() }
+      end,
+      "Find files",
+    },
     ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
     ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
