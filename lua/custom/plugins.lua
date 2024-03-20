@@ -3,6 +3,13 @@ local overrides = require "custom.configs.overrides"
 ---@type NvPluginSpec[]
 local plugins = {
   {
+    "aznhe21/actions-preview.nvim",
+    keys = function()
+      local conf = require "custom.configs.action_preview_config"
+      return conf
+    end,
+  },
+  {
     "kdheepak/lazygit.nvim",
     cmd = {
       "LazyGit",
@@ -39,7 +46,7 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
     dependencies = {
-      { "windwp/nvim-ts-autotag" },
+      { "windwp/nvim-ts-autotag", "HiPhish/nvim-ts-rainbow2" },
     },
   },
 
@@ -151,6 +158,19 @@ local plugins = {
       "MunifTanjim/nui.nvim",
       "smjonas/inc-rename.nvim",
     },
+  },
+
+  {
+    "theprimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("harpoon"):setup()
+    end,
+    keys = function()
+      local conf = require "custom.configs.harpoon_config"
+      return conf
+    end,
   },
 }
 

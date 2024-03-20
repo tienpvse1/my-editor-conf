@@ -3,9 +3,12 @@ local M = {}
 M.general = {
   i = {
     ["<C-s>"] = { "<ESC><cmd> w <CR>", "Save file" },
+    ["<C-S-v>"] = { "<c-r>+", "Paste from clipboard" },
+    ["<S-A-o>"] = { "<ESC><cmd>OrganizeImports<CR>", "LSP OrganizeImports" },
   },
   n = {
 
+    ["<S-A-o>"] = { "<ESC><cmd>OrganizeImports<CR>", "LSP OrganizeImports" },
     ["<A-l>"] = {
       "<cmd>LazyGit <cr>",
       "Open lazygit",
@@ -45,6 +48,12 @@ M.general = {
   },
   v = {
     [">"] = { ">gv", "indent" },
+  },
+  t = {
+    ["<C-v>"] = { "<c-r>", "Paste in terminal mode" },
+  },
+  c = {
+    ["<C-v>"] = { "<c-r>+", "Paste in commandline mode" },
   },
 }
 
