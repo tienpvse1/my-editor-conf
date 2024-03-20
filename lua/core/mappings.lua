@@ -30,7 +30,13 @@ M.general = {
 
     -- line numbers
     ["<leader>n"] = { "<cmd> set nu! <CR>", "Toggle line number" },
-    ["<leader>rn"] = { ":IncRename ", "Incremental rename" },
+    ["<leader>rn"] = {
+      function()
+        return ":IncRename " .. vim.fn.expand "<cword>"
+      end,
+      "Incremental rename",
+      opts = { expr = true },
+    },
 
     -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
     -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
@@ -269,13 +275,7 @@ M.telescope = {
 
   n = {
     -- find
-    ["<leader>ff"] = {
-      function()
-        require("telescope.builtin").find_files { cwd = require("telescope.utils").buffer_dir() }
-      end,
-      "Find files",
-    },
-    ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
+    ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
     ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },

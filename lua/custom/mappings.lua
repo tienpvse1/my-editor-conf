@@ -30,7 +30,7 @@ M.general = {
       "<cmd>horizontal resize -2<cr>",
       "Decrease window height",
     },
-    ["<leader>d"] = { "<cmd>DBUIToggle<CR>", "Save file" },
+    ["<leader>db"] = { "<cmd>DBUIToggle<CR>", "Save file" },
     --  format with conform
     ["<leader>fm"] = {
       function()
