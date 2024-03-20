@@ -3,6 +3,13 @@ local overrides = require "custom.configs.overrides"
 ---@type NvPluginSpec[]
 local plugins = {
   {
+    "aznhe21/actions-preview.nvim",
+    keys = function()
+      local conf = require "custom.configs.action_preview_config"
+      return conf
+    end,
+  },
+  {
     "kdheepak/lazygit.nvim",
     cmd = {
       "LazyGit",

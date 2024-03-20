@@ -184,16 +184,10 @@ M.lspconfig = {
       "LSP rename",
     },
 
-    ["<leader>ca"] = {
-      function()
-        vim.lsp.buf.code_action()
-      end,
-      "LSP code action",
-    },
-
     ["gr"] = {
       function()
-        vim.lsp.buf.references()
+        require("telescope.builtin").lsp_references()
+        vim.api.nvim_input "<ESC>"
       end,
       "LSP references",
     },
@@ -248,14 +242,7 @@ M.lspconfig = {
     },
   },
 
-  v = {
-    ["<leader>ca"] = {
-      function()
-        vim.lsp.buf.code_action()
-      end,
-      "LSP code action",
-    },
-  },
+  v = {},
 }
 
 M.nvimtree = {
