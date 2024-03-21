@@ -186,8 +186,36 @@ M.lspconfig = {
 
     ["gr"] = {
       function()
-        require("telescope.builtin").lsp_references()
-        vim.api.nvim_input "<ESC>"
+        local conf = require("telescope.config").values
+        local function on_list(options)
+          local results = {}
+          for _, item in ipairs(options.items) do
+            table.insert(results, item)
+          end
+          require("telescope.pickers")
+            .new({}, {
+              prompt_title = "LSP references",
+              finder = require("telescope.finders").new_table {
+                results = results,
+                entry_maker = function(entry)
+                  return {
+                    value = entry,
+                    display = entry.filename,
+                    ordinal = entry.filename,
+                    lnum = entry.lnum,
+                    path = entry.filename,
+                    col = entry.col - 1,
+                  }
+                end,
+              },
+              previewer = conf.grep_previewer {},
+              sorter = conf.generic_sorter {},
+              initial_mode = "normal",
+            })
+            :find()
+        end
+
+        vim.lsp.buf.references(nil, { on_list = on_list })
       end,
       "LSP references",
     },
