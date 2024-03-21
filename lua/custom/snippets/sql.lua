@@ -27,7 +27,7 @@ local createTrigger = s("createTrigger", {
   t "()",
   t { "", "RETURNS trigger AS $BODY$ ", "" },
   t { "", "BEGIN", "" },
-  i(2, "do stuffs..."),
+  i(2, "-- do stuffs..."),
   t { "", "RETURN NEW;", "" },
   t { "", "END;", "" },
   t { "", "$BODY$ LANGUAGE plpgsql;", "" },
