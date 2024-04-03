@@ -10,7 +10,9 @@ M.general = {
 
     ["<S-A-o>"] = { "<ESC><cmd>OrganizeImports<CR>", "LSP OrganizeImports" },
     ["<A-l>"] = {
-      "<cmd>LazyGit <cr>",
+      function()
+        require("telescope").extensions.lazygit.lazygit()
+      end,
       "Open lazygit",
     },
     ["-"] = {

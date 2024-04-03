@@ -11,16 +11,19 @@ local plugins = {
   },
   {
     "kdheepak/lazygit.nvim",
-    cmd = {
-      "LazyGit",
-      "LazyGitConfig",
-      "LazyGitCurrentFile",
-      "LazyGitFilter",
-      "LazyGitFilterCurrentFile",
-    },
     dependencies = {
+      "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
     },
+    config = function()
+      require("telescope").load_extension "lazygit"
+      vim.api.nvim_create_autocmd("BufEnter", {
+        pattern = "*",
+        callback = function()
+          require("lazygit.utils").project_root_dir()
+        end,
+      })
+    end,
   },
   {
     "smjonas/inc-rename.nvim",

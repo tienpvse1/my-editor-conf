@@ -1,7 +1,9 @@
 return {
   {
     "<leader>ca",
-    require("actions-preview").code_actions,
+    function()
+      vim.lsp.buf.code_action()
+    end,
     desc = "action preview: display",
   },
 }
