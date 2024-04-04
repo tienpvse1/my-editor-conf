@@ -283,12 +283,12 @@ local default_plugins = {
         log_level = nil, -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
         -- Rich Presence text options
         editing_text = "⌨️  Code file %s ẻ chảy",
-        file_explorer_text = "🔍 Browsing %s",
-        git_commit_text = "Committing changes",
+        file_explorer_text = "🔍 Soi project bằng Telescope",
+        git_commit_text = "Đang push code 💣",
         plugin_manager_text = "Managing plugins",
         reading_text = "👀 %s",
-        workspace_text = "React như 🍆",
-        line_number_text = "Line %s out of %s",
+        workspace_text = "Svelte 🐐",
+        line_number_text = "Dòng %s/%s",
       }
     end,
   },

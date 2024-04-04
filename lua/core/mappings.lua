@@ -200,7 +200,7 @@ M.lspconfig = {
                 entry_maker = function(entry)
                   return {
                     value = entry,
-                    display = entry.filename,
+                    display = (entry.filename):gsub("/home/tienpvse/Desktop/", ""),
                     ordinal = entry.filename,
                     lnum = entry.lnum,
                     path = entry.filename,
