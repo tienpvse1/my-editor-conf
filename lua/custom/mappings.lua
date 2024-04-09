@@ -8,6 +8,13 @@ M.general = {
   },
   n = {
 
+    ["<leader><leader>m"] = {
+      function()
+        require("treesj").toggle()
+      end,
+      "toggle treejs",
+    },
+
     ["<S-A-o>"] = { "<ESC><cmd>OrganizeImports<CR>", "LSP OrganizeImports" },
     ["<A-l>"] = {
       function()
@@ -50,6 +57,8 @@ M.general = {
   },
   v = {
     [">"] = { ">gv", "indent" },
+    ["a="] = {":EasyAlign =", "align by equal sign"},
+    ["a:"] = {":EasyAlign :", "align by colon sign"},
   },
   t = {
     ["<C-v>"] = { "<c-r>", "Paste in terminal mode" },

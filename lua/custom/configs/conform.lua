@@ -12,6 +12,7 @@ local options = {
 
     javascript = { "prettier" },
     typescript = { "prettier" },
+    json = { "prettier" },
     typescriptreact = { "prettier" },
     javascriptreact = { "prettier" },
     css = { "prettier" },

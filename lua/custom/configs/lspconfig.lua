@@ -4,7 +4,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "clangd", "svelte", "tailwindcss", "docker_compose_language_service", "dockerls" }
+local servers = { "html", "cssls", "clangd", "tailwindcss", "docker_compose_language_service", "dockerls" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -63,5 +63,17 @@ lspconfig.gopls.setup {
     },
   },
 }
---
--- lspconfig.pyright.setup { blabla}
+
+lspconfig.svelte.setup {
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePost", {
+      pattern = { "*.js", "*.ts" },
+      callback = function(ctx)
+        -- Here use ctx.match instead of ctx.file
+        client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+      end,
+    })
+  end,
+
+  capabilities = capabilities,
+}

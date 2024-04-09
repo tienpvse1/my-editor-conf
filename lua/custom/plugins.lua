@@ -175,6 +175,24 @@ local plugins = {
       return conf
     end,
   },
+  {
+    "Wansmer/treesj",
+    keys = { "<leader>m", "<leader>j", "<leader>s" },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+  },
+  {
+    "junegunn/vim-easy-align",
+    lazy = false,
+  },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = {
+      "kevinhwang91/promise-async",
+    },
+    config = function()
+      require "custom.configs.ufo"
+    end,
+  },
 }
 
 return plugins
