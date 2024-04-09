@@ -74,6 +74,11 @@ lspconfig.svelte.setup {
       end,
     })
   end,
-
   capabilities = capabilities,
+  commands = {
+    OrganizeImports = {
+      organize_golang_import,
+      description = "Organize Imports",
+    },
+  },
 }
