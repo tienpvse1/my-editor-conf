@@ -43,3 +43,17 @@ vim.opt.rtp:prepend(lazypath)
 require "plugins"
 vim.g.neovide_fullscreen = true
 vim.g.neovide_cursor_vfx_mode = "railgun"
+
+vim.keymap.set("n", "<C-s>", ":w<CR>") -- Save
+vim.keymap.set("v", "<C-c>", '"+y') -- Copy
+vim.keymap.set("n", "<C-v>", '"+P') -- Paste normal mode
+vim.keymap.set("v", "<C-v>", '"+P') -- Paste visual mode
+vim.keymap.set("c", "<C-v>", "<C-R>+") -- Paste command mode
+vim.keymap.set("t", "<C-S-v>", '<C-\\><C-n>"*pa') -- Paste command mode
+vim.keymap.set("i", "<C-v>", '<ESC>l"+Pli') -- Paste insert mode
+
+-- Allow clipboard copy paste in neovim
+vim.api.nvim_set_keymap("", "<D-v>", "+p<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("!", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("t", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true })

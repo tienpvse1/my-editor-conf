@@ -57,17 +57,14 @@ M.general = {
   },
   v = {
     [">"] = { ">gv", "indent" },
-    ["a="] = {":EasyAlign =", "align by equal sign"},
-    ["a:"] = {":EasyAlign :", "align by colon sign"},
+    ["a="] = { ":EasyAlign =", "align by equal sign" },
+    ["a:"] = { ":EasyAlign :", "align by colon sign" },
   },
   t = {
-    ["<C-v>"] = { "<c-r>", "Paste in terminal mode" },
   },
   c = {
-    ["<C-v>"] = { "<c-r>+", "Paste in commandline mode" },
   },
 }
 
 -- more keybinds!
-
 return M
